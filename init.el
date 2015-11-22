@@ -125,7 +125,7 @@
 (when *is-a-mac*
   (require-package 'osx-location))
 (require-package 'regex-tool)
-
+(require-package 'ess)
 ;;----------------------------------------------------------------------------
 ;; Allow access from emacsclient
 ;;----------------------------------------------------------------------------
