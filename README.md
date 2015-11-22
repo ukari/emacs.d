@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/purcell/emacs.d.png?branch=master)](https://travis-ci.org/purcell/emacs.d)
+[![Build Status](https://travis-ci.org/ukari/emacs.d.svg)](https://travis-ci.org/ukari/emacs.d)
 
 # A reasonable Emacs config
 
