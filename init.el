@@ -163,6 +163,10 @@
 (provide 'init)
 
 ;; Local Variables:
+;;----------------------------------------------------------------------------
+;;To make system copy work with Emacs paste and Emacs copy work with system paste
+;;----------------------------------------------------------------------------
+(setq x-select-enable-clipboard t)
 ;; coding: utf-8
 ;; no-byte-compile: t
 ;; End:
