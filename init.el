@@ -173,4 +173,3 @@
 ;; no-byte-compile: t
 ;; End:
 (put 'erase-buffer 'disabled nil)
-(setq-default tab-width 4)
