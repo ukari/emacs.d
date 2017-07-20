@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 (when (< emacs-major-version 24)
   (require-package 'color-theme))
 
@@ -46,6 +47,13 @@ ignored: use `custom-enabled-themes' instead."
 
 ;; If you don't customize it, this is the theme you get.
 (setq-default custom-enabled-themes '(reykjavik))
+=======
+(require-package 'color-theme-sanityinc-solarized)
+(require-package 'color-theme-sanityinc-tomorrow)
+
+;; If you don't customize it, this is the theme you get.
+(setq-default custom-enabled-themes '(sanityinc-tomorrow-bright))
+>>>>>>> 2caee911dc0be5efa7f9de41af07812cd56546d5
 
 ;; Ensure that themes will be applied even if they have not been customized
 (defun reapply-themes ()
@@ -64,12 +72,16 @@ ignored: use `custom-enabled-themes' instead."
 (defun light ()
   "Activate a light color theme."
   (interactive)
-  (safe-load-theme 'monokai))
+  ;(safe-load-theme 'monokai))
+  (setq custom-enabled-themes '(sanityinc-tomorrow-day))
+  (reapply-themes))
 
 (defun dark ()
   "Activate a dark color theme."
   (interactive)
-  (safe-load-theme 'reykjavik))
+  ;(safe-load-theme 'reykjavik))
+  (setq custom-enabled-themes '(sanityinc-tomorrow-bright))
+  (reapply-themes))
 
 (defun safe-load-theme (name)
   (if (fboundp 'load-theme)
