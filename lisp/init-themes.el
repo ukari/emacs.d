@@ -1,59 +1,8 @@
-<<<<<<< HEAD
-(when (< emacs-major-version 24)
-  (require-package 'color-theme))
-
 (require-package 'reykjavik-theme)
 (require-package 'monokai-theme)
 
-;;------------------------------------------------------------------------------
-;; Old-style color theming support (via color-theme.el)
-;;------------------------------------------------------------------------------
-(defcustom window-system-color-theme 'color-theme-terminal
-  "Color theme to use in window-system frames.
-If Emacs' native theme support is available, this setting is
-ignored: use `custom-enabled-themes' instead."
-  :type 'symbol)
-
-(defcustom tty-color-theme 'color-theme-terminal
-  "Color theme to use in TTY frames.
-If Emacs' native theme support is available, this setting is
-ignored: use `custom-enabled-themes' instead."
-  :type 'symbol)
-
-(unless (boundp 'custom-enabled-themes)
-  (defun color-theme-terminal ()
-    (interactive)
-    (safe-load-theme 'reykjavik))
-
-  (defun apply-best-color-theme-for-frame-type (frame)
-    (with-selected-frame frame
-      (funcall (if window-system
-                   window-system-color-theme
-                 tty-color-theme))))
-
-  (defun reapply-color-themes ()
-    (interactive)
-    (mapcar 'apply-best-color-theme-for-frame-type (frame-list)))
-
-  (set-variable 'color-theme-is-global nil)
-  (add-hook 'after-make-frame-functions 'apply-best-color-theme-for-frame-type)
-  (add-hook 'after-init-hook 'reapply-color-themes)
-  (apply-best-color-theme-for-frame-type (selected-frame)))
-
-
-;;------------------------------------------------------------------------------
-;; New-style theme support, in which per-frame theming is not possible
-;;------------------------------------------------------------------------------
-
 ;; If you don't customize it, this is the theme you get.
 (setq-default custom-enabled-themes '(reykjavik))
-=======
-(require-package 'color-theme-sanityinc-solarized)
-(require-package 'color-theme-sanityinc-tomorrow)
-
-;; If you don't customize it, this is the theme you get.
-(setq-default custom-enabled-themes '(sanityinc-tomorrow-bright))
->>>>>>> 2caee911dc0be5efa7f9de41af07812cd56546d5
 
 ;; Ensure that themes will be applied even if they have not been customized
 (defun reapply-themes ()
@@ -72,15 +21,13 @@ ignored: use `custom-enabled-themes' instead."
 (defun light ()
   "Activate a light color theme."
   (interactive)
-  ;(safe-load-theme 'monokai))
-  (setq custom-enabled-themes '(sanityinc-tomorrow-day))
+  (setq custom-enabled-themes '(monokai))
   (reapply-themes))
 
 (defun dark ()
   "Activate a dark color theme."
   (interactive)
-  ;(safe-load-theme 'reykjavik))
-  (setq custom-enabled-themes '(sanityinc-tomorrow-bright))
+  (setq custom-enabled-themes '(reykjavik))
   (reapply-themes))
 
 (defun safe-load-theme (name)
