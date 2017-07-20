@@ -170,3 +170,4 @@
 ;; coding: utf-8
 ;; no-byte-compile: t
 ;; End:
+(put 'erase-buffer 'disabled nil)
